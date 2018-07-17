@@ -1,0 +1,7 @@
+---
+  - name: Install the httpd apps
+    yum: name=httpd
+  - name: Create Template
+    template: src=index.j2 dest=/var/www/html/index.html
+  - name: start the httpd service
+    service: name=httpd state=started

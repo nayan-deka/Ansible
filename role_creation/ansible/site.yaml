@@ -1,0 +1,6 @@
+---
+## Web Servers
+- hosts: all
+  roles:
+    - nayan.lab
+  sudo: yes
