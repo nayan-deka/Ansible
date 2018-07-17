@@ -1,0 +1,301 @@
+What is Docker?
+How Docker Works?
+Advantage of Docker?
+How to install docker?
+http://www.devopsschool.com/tutorial/docker/docker-install-commuityedition-oldmethod.html
+$ systemctl start docker
+
+
+ITS ALL ABOUT APP?
+jenkins
+JAVA -> WAR -> 8080 (SERVER(WEB)  CLIENT(NODE)
+
+Docker Engine
+Docker Image
+Docker Repo
+	hub.docker.com
+	store.docker.com
+Docker Container
+	1. 
+	2. Docker container is a running state of the image.
+
+$ docker info
+$ docker version
+
+How to check the list of images?
+$ docker images
+
+How to download images?
+$ docker pull jenkins
+
+How to the list of running containers?
+$ docker ps
+
+How to run images to get containers?
+$ docker run jenkins
+
+How to get the info about the containers?
+$ docker inspect cont-id
+
+172.17.0.2
+
+http://172.17.0.2:8080
+http://13.232.77.160:8080
+
+How to run container and expose a port to host?
+$ docker run -d -p 8080:8080 -p 50000:50000 jenkins
+$ docker run -d -p 8085:8080 -p 50001:50000 jenkins
+$ docker run -d -p 8086:8080 -p 50002:50000 jenkins
+
+
+8080:8080 -- EXTERNAL:INTERNAL
+http://www.devopsschool.com/notes/docker/2018/
+============================================================
+How to go inside a container?
+1. exec 
+2. attach [ Recommended]
+
+$ docker exec -it 1c9ad556c8cd /bin/bash
+
+How to come out of container?
+CTL + p + Q
+====================================
+How to stop the container?
+$ docker stop cont-id
+
+How can i list containes?
+$ docker ps -a
+
+How to delete a container?
+$ docker rm cont-id
+
+List of processing running inside container?
+$ docker top cont-id
+
+How to see the logs of the running containers?
+$ docker logs cont-id
+
+
+EVERY CONTAINER NEEDS AT LEAST OF ONE PROCESS IN RUNNING
+=========================================================
+
+info        Display system-wide information
+version     Show the Docker version information
+
+Playing with Containers?
+======================================
+attach      Attach local standard input, output, and error streams to a running container
+cp          Copy files/folders between a container and the local filesystem
+	docker cp verizon.txt 29651fa769a1:/opt
+	docker cp 29651fa769a1:/opt/verizon.txt .
+exec        Run a command in a running container
+rename      Rename a container
+	docker run -itd --name ver ubuntu /bin/bash
+	docker rename 29651fa769a1 ver1
+ps          List containers
+run         Run a command in a new container
+start       Start one or more stopped containers
+stop        Stop one or more running containers
+kill        Kill one or more running containers
+restart     Restart one or more containers
+rm          Remove one or more containers
+
+Monitoing Containers n Images?
+================================================
+top         Display the running processes of a container
+logs        Fetch the logs of a container
+stats       Display a live stream of container(s) resource usage statistics
+
+
+Playing with the images?
+===========================================
+images      List images
+pull        Pull an image or a repository from a registry
+build       Build an image from a Dockerfile
+commit      Create a new image from a container's changes
+history     Show the history of an image
+inspect     Return low-level information on Docker objects
+login       Log in to a Docker registry
+push        Push an image or a repository to a registry
+rmi         Remove one or more images
+save        Save one or more images to a tar archive (streamed to STDOUT by default)
+load        Load an image from a tar archive or STDIN
+
+
+create      Create a new container
+diff        Inspect changes to files or directories on a container's filesystem
+events      Get real time events from the server
+export      Export a container's filesystem as a tar archive
+import      Import the contents from a tarball to create a filesystem image
+logout      Log out from a Docker registry
+pause       Pause all processes within one or more containers
+port        List port mappings or a specific mapping for the container
+
+
+
+search      Search the Docker Hub for images
+tag         Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+unpause     Unpause all processes within one or more containers
+update      Update configuration of one or more containers
+wait        Block until one or more containers stop, then print their exit codes
+
+
+=========================
+
+
+docker stop $(docker ps -aq)
+docker rm $(docker ps -aq)
+
+
+
+Jenkins 
+	FROM openjdk:8-jdk
+		FROM buildpack-deps:stretch-scm
+			FROM buildpack-deps:stretch-curl
+				FROM debian:stretch
+					FROM scratch
+
+How to create a images?
+1. existing container
+docker commit -m"This is UB-GIT-UP" -a "Rajesh Kumar" e75c29b80be7 ub-git-up
+
+STEPS1
+-------------------
+1 DOCKER PULL BASE IMAGES
+2 DOCKER RUN (Container)
+3 DO THE CHANGES
+4 COMMIT
+5 DELETE THE CONTAINER
+
+2. Dockerfile
+
+FROM ubuntu
+MAINTAINER "Rajesh Kumar"
+RUN apt-get update && apt-get install git -y
+
+
+docker build -t ub-up .
+
+=========================================================
+
+How to share the images?
+
+1. Tar ball
+	$ docker save -o ub-up.tar ub-up
+2. Public Repo
+	1. register on hub
+	2. Login and create repo
+	3. docker login
+	4. Docker tag
+	5. docker push
+
+  261  docker login
+  262  docker login
+  263  clear
+  264  docker images
+  265  docker push rrrr
+  266  docker tag rrrr scmgalaxy/rrrr
+  267  docker images
+  268  docker push scmgalaxy/rrrr
+
+
+
+3. pvt repo
+
+
+LAB and Test 
+http://www.devopsschool.com/tutorial/docker/labs/docker-lab-6-link.html
+
+DEVOPS 
+http://www.devopsschool.com/video/devops/Complete-CICD-Implementation-from-Scratch.html
+============================================================================================
+Docker Neworking
+[root@ip-172-31-6-211 ~]# ifconfig
+docker0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        inet 172.17.0.1  netmask 255.255.0.0  broadcast 0.0.0.0
+        ether 02:42:96:af:f2:83  txqueuelen 0  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+,
+                    "Gateway": "172.17.0.1",
+                    "IPAddress": "172.17.0.2",
+			
+
+
+BRIDGE
+172.17.0.1
+172.17.0.3
+4b74273cecf5
+8ac08ed554ff
+
+VERIZON
+172.18.0.1
+172.18.0.2
+0e6a66b1974f
+
+TYPES OF NETWORK IN DOCKER
+=================================
+BRIDGE MODE
+HOST ONLY MODE
+NONE
+
+
+$ docker network ls
+$ docker network create verizon --driver=bridge
+$ docker run -itd --net=verizon ubuntu
+apt-get update && apt-get install -y iputils-ping traceroute net-tools iproute2
+
+
+EACH CONTAINER IS CREATED WITH ONE INTERFACE.....
+vethc027f4a:
+
+VOLUME
+--------------------------
+docker run -d -p 8080:8080 -p 50000:50000 jenkins
+docker run -d --name jen1 -v /opt/backup:/var/jenkins_home -p 8095:8080 -p 50002:50000 jenkins
+
+
+
+DEMO PENDING
+----------------
+
+
+
+
+
+
+-v /opt/backup:/var/jenkins_home
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
