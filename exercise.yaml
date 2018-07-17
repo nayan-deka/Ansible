@@ -1,0 +1,12 @@
+- hosts: all
+  vars:
+    port: 8080
+    yourname: nayan
+  tasks:
+    - debug:
+        msg: play1
+
+    - name: Include a start yaml
+      include: start.yaml
+    - name: Include a stop yaml
+      include: stop.yaml

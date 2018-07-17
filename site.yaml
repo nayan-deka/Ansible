@@ -1,0 +1,7 @@
+---
+## Web Servers
+- hosts: all
+  roles:
+    - nayan.webserver
+  sudo: yes
+  gather_facts: no

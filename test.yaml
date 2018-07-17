@@ -1,0 +1,12 @@
+---
+- name: This sets up an httpd webserver
+  hosts: everything
+  remote_user: root
+  become: yes
+  vars:
+   pack: httpd
+  tasks:
+  - name: Install the httpd apps
+    yum: name={{ pack }}
+  - name: start the httpd service
+    service: name=httpd state=started

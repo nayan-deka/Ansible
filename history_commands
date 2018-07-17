@@ -1,0 +1,889 @@
+    1  ifconfig
+    2  sudo yum update
+    3  exit
+    4  sudo tee /etc/yum.repos.d/docker.repo <<-'EOF'
+    5  [dockerrepo]
+    6  name=Docker Repository
+    7  baseurl=https://yum.dockerproject.org/repo/main/centos/7/
+    8  enabled=1
+    9  gpgcheck=1
+   10  gpgkey=https://yum.dockerproject.org/gpg
+   11  EOF
+   12  sudo yum install docker-engine
+   13  sudo systemctl enable docker.service
+   14  sudo systemctl start docker
+   15  docker ps
+   16  docker info
+   17  docker version
+   18  docker pull jenkins
+   19  docker images
+   20  docker ps
+   21  docker run jenkins
+   22  exit
+   23  sudo -s
+   24  exit
+   25  docker ps
+   26  docker top 4c3d90a52142
+   27  docker top 2033e0d13033
+   28  docker ps
+   29  docker top 4c3d90a52142
+   30  docker top 2033e0d13033
+   31  docker ps
+   32  docker top 4c3d90a52142
+   33  ifconfig
+   34  ls
+   35  vi test.py
+   36  docker ps
+   37  docker exec -it 4c3d90a52142 python -version
+   38  docker exec -it 4c3d90a52142 python --version
+   39  docker exec -it 4c3d90a52142 python test.py
+   40  ll
+   41  docker ps
+   42  docker inspect 10f4bb61b608
+   43  curl 172.17.0.2:8080
+   44  docker run -d -p 8080:8080 -p 50000:50000 jenkins
+   45  docker ps
+   46  docker inspect 2033e0d13033
+   47  clear
+   48  docker ps
+   49  docker exec -it 2033e0d13033 /bin/bash
+   50  docker ps
+   51  docker stop 10f4bb61b608
+   52  docker ps
+   53  docker ps -a
+   54  docker rm 10f4bb61b608
+   55  docker ps -a
+   56  docker top 10f4bb61b608
+   57  docker top 2033e0d13033
+   58  docker logs 2033e0d13033
+   59  docker images
+   60  docker version
+   61  docker exec -it 2033e0d13033 /bin/bash
+   62  docker exec -it 2033e0d13033 /bin/bash
+   63  docker ps -a
+   64  docker images
+   65  docker pull ubuntu
+   66  docker images
+   67  docker run ubuntu
+   68  docker ps
+   69  docker ps -a
+   70  docker run -itd ubuntu /bin/bash
+   71  docker ps
+   72  docker run -itd --name NareshBabu ubuntu /bin/bash
+   73  docker ps
+   74  docker rename 4c3d90a52142 Naresh
+   75  docker ps
+   76  docker stop bff619d14619
+   77  docker ps
+   78  docker ps -a
+   79  docker restart 4c3d90a52142
+   80  docker ps
+   81  touch verrizon.txt
+   82  docker cp verrizon.txt 4c3d90a52142:/opt
+   83  rm verrizon.txt 
+   84  ls
+   85  rm verrizon.txt 
+   86  docker exec -it 4c3d90a52142 /bin/bash
+   87  docker attach 4c3d90a52142
+   88  docker attach 4c3d90a52142
+   89  docker ps
+   90  docker ls 4c3d90a52142:/opt
+   91  docker exec ls 4c3d90a52142:/opt
+   92  docker exec help
+   93  docker help
+   94  docker exec -help
+   95  docker exec -d ls 4c3d90a52142:/opt
+   96  docker exec -it 4c3d90a52142 ls /opt
+   97  docker exec -it 4c3d90a52142 git -version
+   98  docker exec -it 4c3d90a52142 git version
+   99  vi test.py
+  100  rm test.py 
+  101  rm test.py 
+  102  docker ps
+  103  docker attach 4c3d90a52142
+  104  ls
+  105  sudo -s
+  106  docker images
+  107  docker run -itd ubuntu /bin/bash
+  108  docker ps
+  109  docker attach f243dab76725
+  110  docker ps
+  111  docker commit -m "This is the GIT image" -a 
+  112  docker commit -m "This is the GIT image" -a "Nayan Deka" f243dab76725 ub-git-up
+  113  docker images
+  114  git ps
+  115  docker ps
+  116  docker stop f243dab76725
+  117  docker rm f243dab76725
+  118  docker images
+  119  docker run -itd ubuntu /bin/bash
+  120  docker run -itd ub-git-up /bin/bash
+  121  docker ps
+  122  docker exec -it f83538ee1f02 git --version
+  123  docker exec -it f7b0b0e71b94 git --version
+  124  pwd
+  125  docker ps
+  126  docker diff f83538ee1f02
+  127  docker images
+  128  docker diff 91cca3e9c64c
+  129  ls
+  130  vi dockerfile
+  131  ls
+  132  docker build -t ub-dockfile
+  133  ll
+  134  ls
+  135  docker build -t ub-dockfile .
+  136  docker build -t ub-up .
+  137  docker images
+  138  docker history ub-up
+  139  cd /var/lib/docker/
+  140  ls
+  141  cd overlay/
+  142  ;s
+  143  ls
+  144  cd ..
+  145  ;ls
+  146  ls
+  147  cd overlay/
+  148  ls
+  149  cd ..
+  150  ls
+  151  cd image
+  152  ls
+  153  cd overlay/
+  154  ls
+  155  cd layerdb/
+  156  ls
+  157  cd ..
+  158  ls
+  159  cd ..
+  160  ls
+  161  cd ..
+  162  ls
+  163  docker images
+  164  docker run -itd ub-up /bin/bash
+  165  docker images
+  166  docker history ub-up
+  167  cd
+  168  cd /var/lib/docker/
+  169  find . 113a43faa138
+  170  find . type -d | grep 113a43faa138
+  171  find . -type d | grep 113a43faa138
+  172  pwd
+  173  find .  | grep 113a43faa138
+  174  pwd
+  175  docker login
+  176  docker tag
+  177  docker images
+  178  docker tag latest rrr
+  179  docker tag ub-up rrr
+  180  docker images
+  181  docker push rrr
+  182  docker images
+  183  docker tag rrr nayan7nits/testdocker
+  184  docker images
+  185  docker push
+  186  docker push nayan7nits/testdocker
+  187  docker ps 
+  188  docker stop $(docker ps -aq)
+  189  docker rm $(docker ps -aq)
+  190  docker images
+  191  docker ps -a
+  192  cd /var/lib/
+  193  ls
+  194  cd
+  195  pwd
+  196  cd /opt/
+  197  ls
+  198  cd rh/
+  199  ;s
+  200  ls
+  201  cd
+  202  cd /var
+  203  ls
+  204  cd opt/
+  205  ls
+  206  pwd
+  207  ls
+  208  ls -la
+  209  cd 
+  210  cd /var/lib/
+  211  ll
+  212  cd
+  213  cd /etc/
+  214  ls
+  215  cd
+  216  cd /var/lib/
+  217  ls
+  218  cd docker
+  219  ls
+  220  cd overlay/
+  221  ls
+  222  cd ../containers/
+  223  ls
+  224  docker diff f243dab76725153c8f6b4603cb9e6856119309de3fe84c2a2e8c38979331784a
+  225  ls
+  226  cd f7b0b0e71b94416a4549bacae23836143726de79ccff117e91c7eb567ef9955a
+  227  ls
+  228  pwd
+  229  cd checkpoints/
+  230  ls
+  231  lw
+  232  cd ..
+  233  ll
+  234  cd f83538ee1f02c2327d230b6dbc83804fb8d3954c9867c05a3fe4d6c627bc6204
+  235  ll
+  236  cd
+  237  docker ps 
+  238  docker stats f83538ee1f02
+  239  ll
+  240  docker ps
+  241  docker stop ${docker ps}
+  242  history
+  243  docker stop $(docker ps -aq)
+  244  docker rm $(docker ps -aq)
+  245  ls
+  246  docker images
+  247  ll
+  248  docker ps
+  249  docker images
+  250  docker rmi images
+  251  docker rmi ubuntu jenkins ub-git-up ub-dockfile
+  252  docker images
+  253  docker rmi ubuntu
+  254  docker images
+  255  docker rmi ub-dockfile
+  256  docker images
+  257  docker rmi 113a43faa138
+  258  docker rmi ubuntu
+  259  docker images
+  260  docker run -itd c9b8feb2bcbd
+  261  docker ps 
+  262  docker attach c9b8feb2bcbd
+  263  docker attach bb25ed09b7ca
+  264  docker images
+  265  docker ps
+  266  docker save -o ub-up.tar ub-up
+  267  ls
+  268  mkdir mytar
+  269  cp ub-up.tar mytar/
+  270  rm ub-up.tar 
+  271  cd mytar/
+  272  ls
+  273  cd
+  274  docker images
+  275  docker ps
+  276  docker rm e1c25e51d18f bb25ed09b7ca
+  277  docker stop e1c25e51d18f bb25ed09b7ca
+  278  docker rm e1c25e51d18f bb25ed09b7ca
+  279  docker ps
+  280  docker ps -a
+  281  docker pull mysql
+  282  docker pull wordpress
+  283  docker run --name wpmysql -e MYSQL_ROOT_PASSWORD=password -d mysql:5.5
+  284  docker images
+  285  docker image help
+  286  docker image inspect 8d99edb9fd40
+  287  docker image inspect acfff6acec30
+  288  docker ps
+  289  docker stop 941a5623e617
+  290  docker rm 941a5623e617
+  291  docker ps 
+  292  docker ps -a
+  293  docker run --name wpmysql -e MYSQL_ROOT_PASSWORD=password -d mysql:8.0
+  294  docker images
+  295  docker run --name wpmysql -e MYSQL_ROOT_PASSWORD=password -d mysql
+  296  docker image inspect 8d99edb9fd40
+  297  docker ps -a
+  298  docker stop 1ad334247c17
+  299  docker rm 1ad334247c17
+  300  docker run --name wpmysql -e MYSQL_ROOT_PASSWORD=password -d mysql
+  301  docker ps -a
+  302  docker run --name mywp --link wpmysql:mysql -P -d wordpress
+  303  docker ps
+  304  docker run help
+  305  docker run --help
+  306  docker run --rm --link wpmysql:mysql -P wordpress env
+  307  docker ps
+  308  docker run --name mywp --link wpmysql:mysql -P -d wordpress
+  309  docker ps -a
+  310  docker start b148fe60dcfc
+  311  docker ps
+  312* docker 
+  313  docker inspect b148fe60dcfc
+  314  netstat
+  315  netstat -tlnp
+  316  docker ps
+  317  docker ps -a
+  318  docker start b148fe60dcfc
+  319  docker ps
+  320  ifconfig
+  321  docker ps
+  322  docker run --name mywp --link wpmysql:mysql -P -d wordpress
+  323  docekr ps -a
+  324  docker ps -a
+  325  docker rm docker b148fe60dcfc
+  326  docker rm b148fe60dcfc
+  327  docker ps -a
+  328  docker run --name mywp --link wpmysql:mysql -P -d wordpress
+  329  docker ps
+  330  docker help link
+  331  docker rum help
+  332  docker rum --help
+  333  docker ps
+  334  docker ps -a
+  335  docker start 3056185f0737
+  336  docker ps
+  337  docker ps -a
+  338  docker logs 3056185f0737
+  339  printenv
+  340  docker ps -a
+  341  docker ps
+  342  dockerimages
+  343  docker images
+  344  docker rmi 8d99edb9fd40 8d99edb9fd40
+  345  docker ps
+  346  docker stop 880a6d3e4009
+  347  docker ps
+  348  docker ps -a
+  349  docker rm 3056185f0737 880a6d3e4009
+  350  docker images
+  351  docker rmi 8d99edb9fd40 8d99edb9fd40
+  352  docker images
+  353  docker image rmi 8d99edb9fd40
+  354   
+  355  docker images
+  356  docker ps -a
+  357  docker rm latest
+  358   docker rmi 8d99edb9fd40:latest
+  359   docker images
+  360   docker rmi 8d99edb9fd40:8.0
+  361   docker rmi *
+  362   docker images
+  363   docker rmi latest
+  364   docker images
+  365   docker rmi --force latest
+  366   docker rmi --force 8d99edb9fd40
+  367   docker images
+  368  docker run --name wpmysql -e MYSQL_ROOT_PASSWORD=password -d mysql:5.5
+  369  docker ps
+  370  docker exec -it 8c5f24737773 printenv
+  371  docker run --name mywp --link wpmysql:mysql -P -d wordpress
+  372  docker ps
+  373  docker 658fa417473f logs
+  374  docker logs
+  375  docker logs 658fa417473f
+  376  docker ps
+  377  ifconfig
+  378  docker version
+  379  docker network ls
+  380  docker ps 
+  381  docker exec -it 658fa417473f /bin/bash
+  382  docker ps 
+  383  docekr ps 
+  384  docker ps 
+  385  docker stop 658fa417473f 8c5f24737773
+  386  docker rm 658fa417473f 8c5f24737773
+  387  ifconfig
+  388  docker network create tiwari --driver=bridge
+  389  docker network ls
+  390  ifconfig
+  391  docker run -itd --net=tiwari ubuntu
+  392  docker ps
+  393  docker network ls
+  394  ifconfig
+  395  docker ps
+  396  docker exec -it 18cf28119292 ifconfig
+  397  docker attach 18cf28119292
+  398  docker ps
+  399  docker stop 18cf28119292
+  400  docker ps -a
+  401  docker rm 18cf28119292
+  402  ifconfig
+  403  docker run -itd --net=tiwari ubuntu
+  404  docker attach f13235ffbd5cbc4cebe0abd55c29be18041fa3563d0f48140f0af799716af20d
+  405  pwd
+  406  docker images
+  407  docker ps
+  408  docker ps -a
+  409  docker rm 8be39de42356
+  410  yum install wget -y
+  411  wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+  412  sudo rpm -i epel-release-latest-7.noarch.rpm
+  413  sudo yum update -y 
+  414  sudo yum install ansible -y
+  415  ansible
+  416  ansible --version
+  417  ansible 127.0.0.1 -m file -a "dest=/opt/a.txt mode=600 state=touch"
+  418  ls
+  419  ls -lart /opt/a.txt
+  420  ansible 127.0.0.1 -m file -a "dest=/opt/b.txt mode=755 state=touch"
+  421  ls -lart /opt/a.txt
+  422  ansible 127.0.0.1 -m file -a "dest=/opt/b.txt mode=755 state=touch owner=root"
+  423  ls -lart /opt/a.txt
+  424  ansible 127.0.0.1 -m file -a "dest=/opt/a.txt mode=777 state=file"
+  425  ansible 127.0.0.1 -m file -a "dest=/opt/a.txt mode=777 state=directory"
+  426  ansible 127.0.0.1 -m file -a "dest=/opt/a.txt mode=777 state=absent"
+  427  ansible localhost -m yum -a "pkg=httpd state=present"
+  428  ansible localhost -m yum -a "pkg=httpd state=absent"
+  429  ansible localhost -m yum -a "pkg=nginx state=absent"
+  430  ansible localhost -m yum -a "pkg=nginx state=present"
+  431  ansible localhost -m package -a "pkg=httpd state=present"
+  432  ls
+  433  ansible 127.0.0.1 -m service -a "name=nginx state=started"
+  434  ifconfig
+  435  ansible localhost -m service -a "name=nginx state=stopped"
+  436  ansible localhost -m service -a "name=httpd state=started"
+  437  ansible localhost -m service -a "service=httpd state=started"
+  438  ansible localhost -m service -a "service=httpd state=stopped"
+  439  ansible localhost -m service -a "service=nginx state=started"
+  440  ansible 127.0.0.1 -m setup
+  441  ifconfig
+  442  ansible setup
+  443  ansible all -i 10.76.118.70 -m setup -k -u root
+  444  ping 10.76.118.70
+  445  ansible all -i 10.76.118.70 -m setup -k -u root
+  446  ansible all -i 10.76.118.70 -m setup -u root -k
+  447  ansible all -i 10.76.118.70, -m setup -u root -k
+  448  ansible all -i 10.76.118.70, -m setup -k -u root
+  449  cat /etc/ssh/known_hosts
+  450  cd /etc/ssh/known_hosts
+  451  cd /etc/ssh
+  452  ls
+  453  ssh 10.76.118.70
+  454  ansible all -i 10.76.118.70, -m setup -k -u root
+  455  ansible all -i 10.76.118.70, -m file -a "dest=/opt/a.txt state=touch" -k -u root
+  456  ansible all -i 10.76.118.70, -m file -a "dest=/opt/a.txt state=touch" -u root
+  457  ansible all -i 10.76.118.70, -m yum -a "name=httpd state=present" -k -u root
+  458  ansible all -i 10.76.118.70, -m yum -a "name=httpd state=present" -u root
+  459  ansible all -i 10.76.118.70, -m yum -a "name=httpd state=present" -k -u root
+  460  ansible all -i 10.76.118.70, -m yum -a "name=httpd state=absent" -k -u root
+  461  ip address
+  462  ansible all -i 10.76.118.70, -m groupadd -a "name=deploy" -k -u root
+  463  ansible all -i 10.76.118.70, -m groupadd -a "name=deploy state=present" -k -u root
+  464  ansible all -i 10.76.118.70, -m groupadd -a "name=deploy state=absent" -k -u root
+  465  ansible all -i 10.76.118.70, -m group -a "name=deploy" -k -u root
+  466  ansible all -i 10.76.118.70, -m user -a "name=user1 group=deploy" -k -u root
+  467  ansible 127.0.0.1 -m fetch -a "src=https://github.com/scmgalaxy/helloworld-java-maven dest=/opt/maven"
+  468  ansible 127.0.0.1 -m fetch -a "src=https://github.com/scmgalaxy/helloworld-java-maven dest=/opt/maven/helloworld-java-maven" 
+  469  ansible 127.0.0.1 -m git -a "repo=https://github.com/scmgalaxy/helloworld-java-maven dest=/opt/maven"
+  470  ansible all -i 10.76.118.70, -m copy -a "src=/opt/maven dest=/tmp/helloworld-java-maven" -k -u root
+  471  ansible all -i 10.76.118.70, -m command -a "init 5" -k -u root
+  472  ifconfig
+  473  history
+  474  cd
+  475  mkdir ansible
+  476  cd ansible/
+  477  vi inventory
+  478  ansible all -i inventory -m setup -k -u root
+  479  ssh 10.76.118.113
+  480  ansible all -i inventory -m setup -k -u root
+  481  ansible all -i inventory  -m yum -a "name=httpd state=present" -k -u root
+  482  ansible all -i inventory  -m service -a "name=httpd state=started" -k -u root
+  483  ls
+  484  vi index.html
+  485  ansible all -i inventory  -m copy -a "src=/home/ec2-user/ansible/index.html dest=/var/www/html/index.html mode=644" -k -u root
+  486  pwd
+  487  ansible all -i inventory  -m copy -a "src=/root/ansible/index.html dest=/var/www/html/index.html mode=644" -k -u root
+  488  cd ..
+  489  mkdir keys
+  490  cd keys
+  491  ssh-keygen -t rsa
+  492  ls -la
+  493  cd .ssh
+  494  cd ~/.ssh
+  495  ls
+  496  ssh-copy-id 10.76.118.70
+  497  ssh 10.76.118.70
+  498  ssh-copy-id 10.76.118.113
+  499  cd
+  500  cd ansible/
+  501  ls -lart
+  502  curl 10.76.118.70
+  503  ls
+  504  vi inventory 
+  505  ansible dbservers -i inventory  -m yum -a "name=httpd state=absent" 
+  506  ansible dbservers -i inventory  -m service -a "name=httpd state=started" 
+  507  ansible dbservers -i inventory -m setup 
+  508  ansible dbservers -i inventory  -m package -a "pkg=httpd state=present" 
+  509  ansible dbservers -i inventory -m service -a "name=httpd state=started"
+  510  ansible webservers -i inventory -m setup
+  511  ansible webservers -i inventory -m package -a "pkg=git state=present"
+  512  cat inventory 
+  513  ansible webservers -i inventory -m package -a "pkg=git state=absent"
+  514  ansible dbservers -i inventory -m service -a "name=httpd state=absent"
+  515  ansible dbservers -i inventory -m service -a "name=httpd"
+  516  ansible dbservers -i inventory -m service -a "name=httpd state=stopped"
+  517  ansible dbservers -i inventory -m yum -a "name=httpd state=absent"
+  518  ansible webservers -i inventory -m yum -a "name=git state=absent"
+  519  vi inventory 
+  520  ansible eveything -i inventory -m yum -a "name=httpd state=present"
+  521  ansible everything -i inventory -m yum -a "name=httpd state=present"
+  522  vi inventory 
+  523  ansible everything -i inventory -m yum -a "name=httpd state=present"
+  524  ansible everything -i inventory -m service -a "name=httpd state=started"
+  525  ls
+  526  ansible everthing -i inventory -m copy -a "src=/root/index.html dest=/var/www/html/index.html mode=644"
+  527  pwd
+  528  ansible everthing -i inventory -m copy -a "src=/root/ansible/index.html dest=/var/www/html/index.html mode=644"
+  529  ansible everything -i inventory -m copy -a "src=/root/ansible/index.html dest=/var/www/html/index.html mode=644"
+  530  curl 10.76.118.70
+  531  ssh 10.76.118.70
+  532  which httpd
+  533  ansible -i localhost, -m yum -a "name=httpd state=absent"
+  534  ansible localhost -m yum -a "name=httpd state=absent"
+  535  vi test.yaml
+  536  ansible-playbook test.yaml -u root
+  537  which httpd
+  538  cat inventory 
+  539  ansible everything -i inventory -m service -a "name=httpd state=stopped"
+  540  ansible everything -i inventory -m yum -a "name=httpd state=absent"
+  541  ansible everything -i inventory -m yum -a "name=git state=absent"
+  542  ansible everything -i inventory -m yum -a "name=nginx state=absent"
+  543  which httpd
+  544  ]
+  545  ansible localhost -m yum -a "name=httpd"
+  546  ansible localhost -m yum -a "name=httpd state=absent"
+  547  history
+  548  cat test.yaml 
+  549  ansible-playbook test.yaml -u root
+  550  systemctl start httpd
+  551  ps -eaf | grep httpd
+  552  which httpd
+  553  which nginx
+  554  ansible localhost -m yum -a "name=httpd state=absent"
+  555  ansible localhost -m yum -a "name=nginx state=absent"
+  556  ansible-playbook test.yaml -u root
+  557  ansible localhost -m yum -a "name=httpd state=absent"
+  558  vi test.yaml 
+  559  ansible-playbook -i inventory test.yaml
+  560  vi test.yaml 
+  561  ansible-playbook -i inventory test.yaml
+  562  ansible dbservers -i inventory -m yum -a "name=httpd state=absent"
+  563  vi test.yaml 
+  564  ansible-playbook -i inventory test.yaml 
+  565  cat in
+  566  cat inventory 
+  567  cat test.yaml 
+  568  vi test.yaml 
+  569  ansible-playbook -i inventory test.yaml 
+  570  vi test.yaml 
+  571  ansible-playbook -i inventory test.yaml 
+  572  vi test.yaml 
+  573  ansible-playbook -i inventory test.yaml 
+  574  vi test.yaml 
+  575  ansible-playbook -i inventory test.yaml 
+  576  vi test.yaml 
+  577  ansible-playbook -i inventory test.yaml 
+  578  ls
+  579  varibe.yaml
+  580  vi variable.yaml
+  581  ansible-playbook -i inventory variable.yaml 
+  582  vi variable.yaml 
+  583  ansible-playbook -i inventory variable.yaml 
+  584  vi variable.yaml 
+  585  ansible-playbook -i inventory variable.yaml 
+  586  vi variable.yaml 
+  587  ansible-playbook -i inventory variable.yaml 
+  588  vi variable.yaml 
+  589  ansible-playbook -i inventory variable.yaml 
+  590  vi variable.yaml 
+  591  ansible-playbook -i inventory variable.yaml 
+  592  vi variable.yaml 
+  593  ansible-playbook -i inventory variable.yaml 
+  594  vi variable.yaml 
+  595  cat inventory 
+  596  vi variable.yaml 
+  597  ansible-playbook -i inventory variable.yaml 
+  598  vi variable.yaml 
+  599  ansible-playbook -i inventory variable.yaml 
+  600  vi variable.yaml 
+  601  ansible-playbook -i inventory variable.yaml 
+  602  vi variable.yaml 
+  603  ansible-playbook -i inventory variable.yaml 
+  604  which httpd
+  605  mkdir templates
+  606  ansible localhost -m yum -a "name=httpd state=present"
+  607  cp /etc/httpd/conf/httpd.conf ./templates/
+  608  ansible localhost -m yum -a "name=httpd state=absent"
+  609  mv variable.yaml exercise.yaml
+  610  vi exercise.yaml 
+  611  pwd
+  612  vi exercise.yaml 
+  613  vi index.html
+  614  vi exercise.yaml 
+  615  cp index.html templates/
+  616  rm index.html 
+  617  cd templates/
+  618  lsd
+  619  ls
+  620  mv index.html index.j2
+  621  ls -lart
+  622  cat httpd.conf 
+  623  mv httpd.conf http.j2
+  624  vi http.j2 
+  625  cd ..
+  626  ansible-playbook -i inventory exercise.yaml 
+  627  vi exercise.yaml 
+  628  ansible-playbook -i inventory exercise.yaml 
+  629  vi exercise.yaml 
+  630  ansible-playbook -i inventory exercise.yaml 
+  631  vi exercise.yaml 
+  632  ansible-playbook -i inventory exercise.yaml 
+  633  vi exercise.yaml 
+  634  ansible-playbook -i inventory exercise.yaml 
+  635* 
+  636  ls
+  637  vi exercise.yaml 
+  638  cd ..
+  639  vi exercise.yaml 
+  640  ansible-playbook -i inventory exercise.yaml 
+  641  curl 10.76.118.70:8080
+  642  ssh 10.76.118.70
+  643  curl 10.76.118.70:8080
+  644  ssh 10.76.118.70
+  645  vi exercise.yaml 
+  646  curl http://10.76.118.70:8080/
+  647  curl http://10.76.118.70:8080/index.html
+  648  ifconfig -a
+  649  curl http://10.76.118.68:8080/index.html
+  650  ansible-playbook -i inventory exercise.yaml 
+  651  ansible all -i inventory -m yum -a "name=httpd state=absent"
+  652  vi exercise.yaml 
+  653  ansible-playbook -i inventory exercise.yaml 
+  654  ansible all -i inventory -m yum -a "name=httpd state=absent"
+  655  vi exercise.yaml 
+  656  ansible-playbook -i inventory exercise.yaml 
+  657  ansible all -i inventory -m yum -a "name=httpd state=absent"
+  658  ansible-playbook -i inventory exercise.yaml 
+  659  ansible all -i inventory -m service -a "name=httpd state=stop"
+  660  ansible all -i inventory -m yum -a "name=httpd state=absent"
+  661  ansible-playbook -i inventory exercise.yaml 
+  662  curl 10.76.118.70:8080
+  663  curl http://10.76.118.70:8080/index.html
+  664  ifconfig
+  665  curl -x http://10.76.118.70:8080/index.html
+  666  curl http://10.76.118.70:8080/index.html
+  667  curl http://10.76.118.113:8080/index.html
+  668  curl -x http://10.76.118.113:8080/index.html
+  669  vi /etc/ansible/
+  670  vi /etc/ansible/ansible.cfg 
+  671  ansible-config
+  672* 
+  673  vi /etc/ansible/ansible.cfg 
+  674  l
+  675  ll
+  676  vi stop.yaml
+  677  vi exercise.yaml 
+  678  vi exercise.yaml stop.yaml
+  679  mv exercise.yaml start.yaml
+  680  ansible-playbook -i inventory stop.yaml 
+  681  vi exercise.yaml
+  682  ansible-playbook -i inventory exercise.yaml 
+  683  vi start.yaml 
+  684  ansible-playbook -i inventory start.yaml 
+  685  vi start.yaml 
+  686  cd templates/
+  687  hostname
+  688  vi stop.yaml
+  689  cd ..
+  690  vi stop.yaml
+  691  vi exercise.yaml
+  692  ansible dbservers -i inventory -m setup
+  693  cd templates/
+  694  vi index.j2 
+  695  cd ..
+  696  ansible-playbook -i inventory start.yaml 
+  697  vi stop.yaml 
+  698  vi start.yaml
+  699  ansible-playbook -i inventory exercise.yaml 
+  700  vi exercise.yaml 
+  701  ansible-playbook -i inventory exercise.yaml 
+  702  vi start.yaml
+  703  vi stop.yaml 
+  704  ansible-playbook -i inventory exercise.yaml 
+  705  vi start.yaml
+  706  vi exercise.yaml 
+  707  vi start.yaml
+  708  vi stop.yaml 
+  709  ansible-playbook -i inventory exercise.yaml 
+  710  vi start.yaml
+  711  ansible-playbook -i inventory exercise.yaml 
+  712  vi start.yaml
+  713  ansible-playbook -i inventory exercise.yaml 
+  714  vi start.yaml
+  715  ansible-playbook -i inventory exercise.yaml 
+  716  vi start.yaml
+  717  ansible-playbook -i inventory exercise.yaml 
+  718  vi start.yaml
+  719  ls
+  720  vi prompt.yaml
+  721  ansible-playbook -i inventory prompt.yaml 
+  722  vi condition.yaml
+  723  ansible-playbook -i inventory condition.yaml 
+  724  vi condition.yaml
+  725  vi condition.yaml condition1.yaml 
+  726  vi condition.yaml 
+  727  vi condition1.yaml 
+  728  ansible-playbook -i inventory condition.yaml 
+  729  vi condition1.yaml 
+  730  vi condition.yaml 
+  731  ansible-playbook -i inventory condition.yaml 
+  732  vi condition.yaml 
+  733  ansible-playbook -i inventory condition.yaml 
+  734* ansible localhost -m yum -a ""
+  735  ansible-playbook -i inventory condition.yaml 
+  736  vi looping1.yaml
+  737  ansible-playbook looping1.yaml 
+  738  vi looping1.yaml
+  739  ansible-playbook looping1.yaml 
+  740  vi looping1.yaml
+  741  ansible localhost -m yum "pkg=git state=absent"
+  742  ansible localhost -m yum -a "pkg=git state=absent"
+  743  ansible localhost -m yum -a "pkg=htop state=absent"
+  744  ansible-playbook looping1.yaml 
+  745  vi looping1.yaml
+  746  ansible-playbook looping1.yaml 
+  747  vi start.yaml 
+  748  ansible-doc -l
+  749  ansible-doc -s aws-s3
+  750  ansible-doc aws-s3
+  751  ansible-doc -s aws_s3
+  752  ansible-doc aws_s3
+  753  ansible-doc docker_container
+  754  cd /etc/ansible/
+  755  ls
+  756  cd roles/
+  757  ls
+  758  cd
+  759  ansible-galaxy install abessifi.weblogic
+  760  cd /etc/ansible/
+  761  ls
+  762  cd roles/
+  763  ls
+  764  cd
+  765  cd ansible/
+  766  cd /root/.ansible/roles/
+  767  ls
+  768  cd abessifi.weblogic/
+  769  ls
+  770  cd defaults     host_vars  meta     README.md      tasks             test       vagrant-inventory.ini
+  771  cd
+  772  cd tasks
+  773  cd /root/.ansible/roles/abessifi.weblogic
+  774  ls
+  775  cd tasks
+  776  ls
+  777  vi main.yml 
+  778  cd 
+  779  cd ansible/
+  780  ls
+  781  cd /root/.ansible/roles/abessifi.weblogic
+  782  cd tasks
+  783  vi main.yml 
+  784  cd
+  785  cd ans
+  786  cd ansible/
+  787  lsd
+  788  ls
+  789  vi exercise.yaml 
+  790  vi start.yaml 
+  791  vi stop.yaml 
+  792  ansible-playbook -i inventory exercise.yaml 
+  793  vi start.yaml 
+  794  vi exercise.yaml 
+  795  ansible-playbook -i inventory exercise.yaml 
+  796  vi exercise.yaml 
+  797  ansible-playbook -i inventory exercise.yaml 
+  798  vi start.yaml 
+  799  ansible-playbook -i inventory exercise.yaml 
+  800  vi start.yaml 
+  801  ansible-playbook -i inventory exercise.yaml 
+  802  vi start.yaml 
+  803  ansible-playbook -i inventory exercise.yaml 
+  804  vi start.yaml 
+  805  ansible-playbook -i inventory exercise.yaml 
+  806  vi start.yaml 
+  807  ansible-playbook -i inventory exercise.yaml 
+  808  vi start.yaml 
+  809  vi exercise.yaml 
+  810  ansible-playbook -i inventory exercise.yaml 
+  811  vi exercise.yaml 
+  812  ansible-playbook -i inventory exercise.yaml 
+  813  cd /etc/ansible/roles/
+  814  ls
+  815  ansible-galaxy init nayan.webserver --offline
+  816  tree
+  817  yum install tree
+  818  tree
+  819  cd nayan.webserver/tasks/
+  820  vi main.yml 
+  821  cd ..
+  822  ls
+  823  cd ..
+  824  ls
+  825  cd ..
+  826  ls
+  827  vi hosts 
+  828  ls
+  829  cd roles/
+  830  ll
+  831  cd nayan.webserver/
+  832  ls
+  833  cd
+  834  ls
+  835  cd ansible/
+  836  ls
+  837  vi site.yaml
+  838  ansible-playbook -i hosts site.yaml
+  839  echo $ANSIBLE_HOME
+  840  printenv
+  841  cenv
+  842  env
+  843  cp site.yaml /etc/ansible/
+  844  cd /etc/ansible/
+  845  ls
+  846  ansible-playbook -i hosts site.yaml
+  847  ls
+  848  tree
+  849  ls
+  850  cd roles
+  851  ansible-galaxy init nayan.lab --offline
+  852  ls
+  853  tree
+  854  cd nayan.lab/
+  855  cd tasks/
+  856  vi main.yml 
+  857  cd ..
+  858  ls
+  859  cd templates/
+  860  ls
+  861  vi index.j2
+  862  cd ../defaults/
+  863  ls
+  864  vi main.yml 
+  865  cd ../tasks/
+  866  vi main.yml 
+  867  ls
+  868  cd 
+  869  cd /root/ansible/
+  870  ls
+  871  ansible all -i inventory -m service -a "name=httpd state=stopped"
+  872  ansible all -i inventory -m service -a "name=httpd state=absent"
+  873  ansible all -i inventory -m yum -a "name=httpd state=absent"
+  874  which git
+  875  yum install git
+  876  cd ..
+  877  ls
+  878  cd docker/
+  879  ls
+  880  cat dockerfile 
+  881  cd ..
+  882  history
+  883  cd ansible/
+  884  vi history_commands
+  885  ls
+  886  history 1000
+  887  history 10000
+  888  history 2000
+  889  history 1000 > history_commands 

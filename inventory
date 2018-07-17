@@ -1,0 +1,9 @@
+[everything:children]
+dbservers
+webservers
+
+[dbservers]
+10.76.118.70 ansible_user=root
+
+[webservers]
+10.76.118.113 ansible_user=root

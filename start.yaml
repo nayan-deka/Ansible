@@ -1,0 +1,8 @@
+  - name: Install httpd
+    yum: name=httpd
+  - name: Copy httpd.conf file
+    template: src=/root/ansible/templates/http.j2 dest=/etc/httpd/conf/httpd.conf
+  - name: Copy the index.html file
+    template: src=/root/ansible/templates/index.j2 dest=/var/www/html/index.html
+  - name: Start the httpd service
+    service: name=httpd state=started  

@@ -1,0 +1,8 @@
+---
+- hosts: localhost
+  tasks:
+   - name: Install common software requirements
+     yum: pkg={{ item }} state=absent
+     with_items:
+      - git
+      - htop
